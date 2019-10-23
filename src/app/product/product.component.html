@@ -1,0 +1,11 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': quantity >0,
+                'list-group-item-danger': quantity <=0}">
+  <h4>produit : {{name|uppercase}} -- prix : {{price}} -- qunatité : {{quantity}}
+    -- date de création : {{createdAt|date:'y MM EEEE d'}}</h4>
+  <button (click)="changeQuantity(-1)" [disabled]="quantity<=0" class="btn btn-danger">-</button>
+  <button (click)="changeQuantity(+1)" class="btn btn-success">+</button>
+  <input [(ngModel)]="name" class="form-control" type="text">
+  <p *ngIf="quantity<=0" class="alert alert-danger">Stocké épuisé</p>
+</li>
+
